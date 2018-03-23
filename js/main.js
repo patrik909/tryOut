@@ -42,3 +42,18 @@ function printCurrentTime(){
 
 printCurrentDate();
 printCurrentTime();
+
+const obj = ["patrik", "patrik", "patrik", "patrik", "patrik"]
+
+
+const output = document.getElementById('output');
+
+let objex = ""
+for(i = 0; i < obj.length; i++){
+    //console.log(obj[i])
+    //setTimeout(function(){
+       objex += obj[i] 
+    //}, 1000)
+    
+}
+    output.innerHTML=`<div class="fadeOut">${objex}</div>`;
