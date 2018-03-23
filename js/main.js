@@ -1,5 +1,4 @@
-//CLOCK
-
+//DATE
 function printCurrentDate(){
     
     let date = document.getElementById('date');
@@ -13,7 +12,7 @@ function printCurrentDate(){
     setTimeout(printCurrentDate, 1000);
     
 }
-
+//CLOCK
 function printCurrentTime(){
     
     let time = document.getElementById('time');
@@ -39,21 +38,47 @@ function printCurrentTime(){
     setTimeout(printCurrentTime, 1000);
     
 }
+//Display one at a time animation
+function viewDivAnimation(){
+    
+    const divAnimationWrapper = document.
+    getElementById('divAnimationWrapper');
+    
+    const divAnimationArr = ["firstly", "secondly", "thirdly", "lastly", "et cetera"];
+    
+    let divs = ""
+    
+    for(i = 0; i < divAnimationArr.length; i++){
+        divs +=`
+            <div class="animationDiv fadeOut">
+            ${divAnimationArr[i]}
+            </div>
+        `;   
+    }
+    
+    divAnimationWrapper.innerHTML=divs 
+    
+    const animationDiv = document.getElementsByClassName('animationDiv');
+    
+
+    function runAnimation(){
+        
+        setTimeout(function(){
+            
+            divAnimationWrapper.children[x].
+            classList.remove('fadeOut')
+            console.log(divAnimationWrapper.children[x])
+            x++
+        
+            if(x < divAnimationArr.length){
+                runAnimation();
+            }
+        },150)
+    }
+    x = 0;
+    runAnimation();
+}
 
 printCurrentDate();
 printCurrentTime();
-
-const obj = ["patrik", "patrik", "patrik", "patrik", "patrik"]
-
-
-const output = document.getElementById('output');
-
-let objex = ""
-for(i = 0; i < obj.length; i++){
-    //console.log(obj[i])
-    //setTimeout(function(){
-       objex += obj[i] 
-    //}, 1000)
-    
-}
-    output.innerHTML=`<div class="fadeOut">${objex}</div>`;
+viewDivAnimation();

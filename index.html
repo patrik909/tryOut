@@ -25,17 +25,42 @@
         
         .fadeOut{
             opacity: 0;
-            transition: 500ms;
+        }
+        
+        #divAnimationWrapper{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .animationDiv{
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            background: #70A9A1;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 900;
+            border-radius: 10px;
+            transition: 800ms;
+        }
+        
+        .animationDiv:hover{
+            background: #5f918a;
         }
         
     </style>
 </head>
 <body>
+
 <div class="dateWrapper">
     <div id="date"></div>
     <div id="time"></div>
 </div>
-<div id="output"></div>
+
+<div id="divAnimationWrapper"></div>
+
 <script src="js/main.js"></script>
+
 </body>
 </html>
