@@ -4,7 +4,8 @@ function responsiveNavBar(){
     getElementById('navBarButton');
 
     navButton.addEventListener('click', function(){
-        toggleNavBar();    
+        toggleNavBar();
+        filterBackground();
     })
     
     function toggleNavBar(){
@@ -34,6 +35,20 @@ function responsiveNavBar(){
                 classList.toggle('toggle')
             },1000)
         }
+    }
+    function filterBackground(){
+        
+         const main = navButton.parentElement.
+         parentElement.parentElement.
+         nextElementSibling
+         
+         const footer = navButton.parentElement.
+         parentElement.parentElement.nextElementSibling.
+         nextElementSibling
+         
+         main.classList.toggle('backgroundFilter');
+         footer.classList.toggle('backgroundFilter');
+        
     }
     
 }
