@@ -53,6 +53,8 @@ function responsiveNavBar(){
                     navButton.nextElementSibling.
                     firstElementChild.classList.
                     toggle('fadeOut');
+                    navButton.nextElementSibling.
+                    classList.toggle('toggle');
                 }, 400)
             }, 300)
 
@@ -121,44 +123,44 @@ function printCurrentTime(){
 }
 printCurrentTime();
 
-//Display one at a time animation
-function viewDivAnimation(){
+//FOLD DOWN ANIMATION
+function viewFoldDown(){
     
-    const divAnimationWrapper = document.
-    getElementById('divAnimationWrapper');
+    const displayFoldDown = document.
+    getElementById('displayFoldDown');
     
-    const divAnimationArr = ["firstly", "secondly", "thirdly", "lastly", "et cetera"];
+    const foldDownArr = ["firstly", "secondly", "thirdly", "lastly", "et cetera"];
     
     let divs = ""
     
-    for(i = 0; i < divAnimationArr.length; i++){
+    for(i = 0; i < foldDownArr.length; i++){
         divs +=`
-            <div class="animationDiv fadeOut">${divAnimationArr[i]}</div>
+            <div class="foldDownDiv fadeOut">${foldDownArr[i]}</div>
         `;   
     }
     
-    divAnimationWrapper.innerHTML=divs 
+    displayFoldDown.innerHTML=divs 
     
-    const animationDiv = document.getElementsByClassName('animationDiv');
+    const foldDownDiv = document.getElementsByClassName('foldDownDiv');
     
 
-    function runAnimation(){
+    function runfoldDown(){
         
         setTimeout(function(){
             
-            divAnimationWrapper.children[x].
+            displayFoldDown.children[x].
             classList.remove('fadeOut')
             x++
         
-            if(x < divAnimationArr.length){
-                runAnimation();
+            if(x < foldDownArr.length){
+                runfoldDown();
             }
         },150)
     }
     x = 0;
-    runAnimation();
+    runfoldDown();
 }
 
-const startDivAnimation = document.getElementById('startDivAnimation');
+const startFoldDownAnimation = document.getElementById('startFoldDown');
 
-startDivAnimation.addEventListener('click', viewDivAnimation)
+startFoldDownAnimation.addEventListener('click', viewFoldDown)

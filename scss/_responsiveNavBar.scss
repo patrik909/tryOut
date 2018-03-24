@@ -20,7 +20,7 @@ nav{
     border: none;
     display: flex;
     flex-direction: column;
-    padding-right: 30px;
+    padding-right: 20px;
 }
 
 .hamburger{
@@ -76,9 +76,11 @@ nav{
 
 #navUl{
     display: flex;
+    font-size: 1.1em;
     flex-direction: column;
     align-items: flex-end;
     padding: 20px;
+    margin: 0;
     z-index: 2;
     transition: 500ms;
 }
@@ -136,6 +138,7 @@ nav{
 
     #navUl{
         flex-direction: row;
+        font-size: 1.2em;
         padding: 0;
     }
     

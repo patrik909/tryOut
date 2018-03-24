@@ -1,0 +1,37 @@
+.foldDownWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#startFoldDown{
+    font-weight: 900;
+    background: #f99231;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 5px;
+    transition: 300ms;
+    margin-bottom: 30px;  
+}
+
+#startFoldDown:hover{
+    background: #ed8a2d;
+}
+
+.foldDownDiv{
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    background: #ed402c;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-radius: 10px;
+    transition: 800ms;   
+}
+
+.foldDownDiv:hover{
+    background: #d83927;
+}
