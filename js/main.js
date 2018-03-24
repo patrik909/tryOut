@@ -1,13 +1,43 @@
-const navToggleButton = document.getElementById('navBarButton');
+function responsiveNavBar(){
+    
+    const navButton = document.
+    getElementById('navBarButton');
 
-navToggleButton.addEventListener('click', function(){
-    navToggleButton.nextElementSibling.
-    classList.toggle('toggle')
-    setTimeout(function(){
-        navToggleButton.nextElementSibling.
-        classList.toggle('toggleFade')
+    navButton.addEventListener('click', function(){
+        toggleNavBar();    
     })
-})
+    
+    function toggleNavBar(){
+        
+        const navBarToggled = navButton.
+        nextElementSibling.classList.
+        contains('toggle');
+    
+        if(navBarToggled){
+            //Checks IF it's toggled or not.
+            navButton.nextElementSibling.
+            classList.toggle('toggle')
+            //Fades in the navBar after been toggled.
+            setTimeout(function(){
+                navButton.nextElementSibling.
+                classList.toggle('navLinksFade')
+            })
+        
+        } else {
+            
+            navButton.nextElementSibling.
+            classList.toggle('navLinksFade')
+    
+            setTimeout(function(){
+                //Timeset waits til the fade is done.
+                navButton.nextElementSibling.
+                classList.toggle('toggle')
+            },1000)
+        }
+    }
+    
+}
+responsiveNavBar()
 
 //DATE
 function printCurrentDate(){
