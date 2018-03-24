@@ -1,3 +1,14 @@
+const navToggleButton = document.getElementById('navBarButton');
+
+navToggleButton.addEventListener('click', function(){
+    navToggleButton.nextElementSibling.
+    classList.toggle('toggle')
+    setTimeout(function(){
+        navToggleButton.nextElementSibling.
+        classList.toggle('toggleFade')
+    })
+})
+
 //DATE
 function printCurrentDate(){
     
@@ -12,6 +23,7 @@ function printCurrentDate(){
     setTimeout(printCurrentDate, 1000);
     
 }
+printCurrentDate();
 //CLOCK
 function printCurrentTime(){
     
@@ -38,6 +50,7 @@ function printCurrentTime(){
     setTimeout(printCurrentTime, 1000);
     
 }
+printCurrentTime();
 //Display one at a time animation
 function viewDivAnimation(){
     
@@ -50,9 +63,7 @@ function viewDivAnimation(){
     
     for(i = 0; i < divAnimationArr.length; i++){
         divs +=`
-            <div class="animationDiv fadeOut">
-            ${divAnimationArr[i]}
-            </div>
+            <div class="animationDiv fadeOut">${divAnimationArr[i]}</div>
         `;   
     }
     
@@ -67,7 +78,6 @@ function viewDivAnimation(){
             
             divAnimationWrapper.children[x].
             classList.remove('fadeOut')
-            console.log(divAnimationWrapper.children[x])
             x++
         
             if(x < divAnimationArr.length){
@@ -79,6 +89,6 @@ function viewDivAnimation(){
     runAnimation();
 }
 
-printCurrentDate();
-printCurrentTime();
-viewDivAnimation();
+const startDivAnimation = document.getElementById('startDivAnimation');
+
+startDivAnimation.addEventListener('click', viewDivAnimation)
