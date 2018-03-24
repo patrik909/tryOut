@@ -4,8 +4,12 @@ function responsiveNavBar(){
     getElementById('navBarButton');
 
     navButton.addEventListener('click', function(){
+        
         toggleNavBar();
         filterBackground();
+        //Button animations for navBar
+        navButton.classList.toggle('toggledNavButton');
+        
     })
     
     function toggleNavBar(){
@@ -20,22 +24,40 @@ function responsiveNavBar(){
             classList.toggle('toggle')
             //Fades in the navBar after been toggled.
             setTimeout(function(){
+                
                 navButton.nextElementSibling.
                 classList.toggle('navLinksFade')
+    
+                setTimeout(function(){
+                    //Fades links with some delay
+                    navButton.nextElementSibling.
+                    firstElementChild.classList.
+                    toggle('ulFade');
+                }, 400)
             })
         
         } else {
             
+            //Fade the links first
             navButton.nextElementSibling.
-            classList.toggle('navLinksFade')
-    
+            firstElementChild.classList.
+            toggle('ulFade');
+            
             setTimeout(function(){
-                //Timeset waits til the fade is done.
                 navButton.nextElementSibling.
-                classList.toggle('toggle')
-            },1000)
+                classList.toggle('navLinksFade')
+                
+                setTimeout(function(){
+                    //Fades links with some delay
+                    navButton.nextElementSibling.
+                    firstElementChild.classList.
+                    toggle('fadeOut');
+                }, 400)
+            }, 300)
+
         }
     }
+    
     function filterBackground(){
         
          const main = navButton.parentElement.
