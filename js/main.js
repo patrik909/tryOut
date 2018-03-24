@@ -1,3 +1,4 @@
+//RESPONSIVE NAVBAR
 function responsiveNavBar(){
     
     const navButton = document.
@@ -91,6 +92,7 @@ function printCurrentDate(){
     
 }
 printCurrentDate();
+
 //CLOCK
 function printCurrentTime(){
     
@@ -118,6 +120,7 @@ function printCurrentTime(){
     
 }
 printCurrentTime();
+
 //Display one at a time animation
 function viewDivAnimation(){
     
