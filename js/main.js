@@ -22,18 +22,20 @@ function responsiveNavBar(){
         if(navBarToggled){
             //Checks IF it's toggled or not.
             navButton.nextElementSibling.
-            classList.toggle('toggle')
+            classList.remove('toggle')
+            console.log("if")
             //Fades in the navBar after been toggled.
             setTimeout(function(){
                 
                 navButton.nextElementSibling.
-                classList.toggle('navLinksFade')
+                classList.remove('navLinksFade')
     
                 setTimeout(function(){
                     //Fades links with some delay
                     navButton.nextElementSibling.
                     firstElementChild.classList.
-                    toggle('ulFade');
+                    remove('ulFade');
+                    
                 }, 400)
             })
         
@@ -42,23 +44,22 @@ function responsiveNavBar(){
             //Fade the links first
             navButton.nextElementSibling.
             firstElementChild.classList.
-            toggle('ulFade');
+            add('ulFade');
+             console.log("ifnot")
             
             setTimeout(function(){
                 navButton.nextElementSibling.
-                classList.toggle('navLinksFade')
+                classList.add('navLinksFade')
                 
                 setTimeout(function(){
                     //Fades links with some delay
                     navButton.nextElementSibling.
-                    firstElementChild.classList.
-                    toggle('fadeOut');
-                    navButton.nextElementSibling.
-                    classList.toggle('toggle');
+            classList.add('toggle')
                 }, 400)
             }, 300)
 
         }
+        
     }
     
     function filterBackground(){
@@ -77,6 +78,7 @@ function responsiveNavBar(){
     }
     
 }
+//FIXA SÅ ATT DEN INTE LIGGER KVAR ÖVER SIDAN NÄR MAN TOGGLAT BORT DEN
 responsiveNavBar()
 
 //DATE
