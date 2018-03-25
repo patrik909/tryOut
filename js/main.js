@@ -9,54 +9,52 @@ function responsiveNavBar(){
         toggleNavBar();
         filterBackground();
         //Button animations for navBar
-        navButton.classList.toggle('toggledNavButton');
+        navButton.classList.
+        toggle('toggledNavButton');
         
     })
     
     function toggleNavBar(){
         
-        const navBarToggled = navButton.
-        nextElementSibling.classList.
-        contains('toggle');
-    
+        const navBarToggled = navButton.nextElementSibling.
+        classList.contains('toggle');
+       
+
         if(navBarToggled){
             //Checks IF it's toggled or not.
             navButton.nextElementSibling.
-            classList.remove('toggle')
-            console.log("if")
+            classList.toggle('toggle')
             //Fades in the navBar after been toggled.
             setTimeout(function(){
                 
                 navButton.nextElementSibling.
-                classList.remove('navLinksFade')
-    
+                classList.toggle('navLinksFade')
                 setTimeout(function(){
                     //Fades links with some delay
                     navButton.nextElementSibling.
                     firstElementChild.classList.
-                    remove('ulFade');
+                    toggle('ulFade');
                     
-                }, 400)
-            })
+                }, 300)
+            },100)
         
         } else {
             
             //Fade the links first
             navButton.nextElementSibling.
             firstElementChild.classList.
-            add('ulFade');
-             console.log("ifnot")
+            toggle('ulFade');
             
             setTimeout(function(){
                 navButton.nextElementSibling.
-                classList.add('navLinksFade')
+                classList.toggle('navLinksFade')
                 
                 setTimeout(function(){
                     //Fades links with some delay
                     navButton.nextElementSibling.
-            classList.add('toggle')
-                }, 400)
-            }, 300)
+                    classList.toggle('toggle')
+                }, 300)
+            }, 100)
 
         }
         
@@ -64,21 +62,24 @@ function responsiveNavBar(){
     
     function filterBackground(){
         
+         const banner = navButton.parentElement.parentElement.
+         parentElement.nextElementSibling
+         
          const main = navButton.parentElement.
-         parentElement.parentElement.
+         parentElement.parentElement.parentElement.
          nextElementSibling
          
          const footer = navButton.parentElement.
-         parentElement.parentElement.nextElementSibling.
-         nextElementSibling
-         
+         parentElement.parentElement.parentElement.
+         nextElementSibling.nextElementSibling
+        
+         banner.classList.toggle('backgroundFilter');
          main.classList.toggle('backgroundFilter');
          footer.classList.toggle('backgroundFilter');
         
     }
     
 }
-//FIXA SÅ ATT DEN INTE LIGGER KVAR ÖVER SIDAN NÄR MAN TOGGLAT BORT DEN
 responsiveNavBar()
 
 //DATE
@@ -125,44 +126,93 @@ function printCurrentTime(){
 }
 printCurrentTime();
 
-//FOLD DOWN ANIMATION
-function viewFoldDown(){
+//SLIDE SHOW ANIMATION
+function slideShowBanner(i){
     
-    const displayFoldDown = document.
-    getElementById('displayFoldDown');
+    const slideShowBannerDiv = document.
+    getElementById('slideShowBanner');
     
-    const foldDownArr = ["firstly", "secondly", "thirdly", "lastly", "et cetera"];
+    const bannerImages = [
+        "cafeInterior.jpg", 
+        "perestrianStreet.jpg",
+        "masseHall.jpg"
+    ];
     
-    let divs = ""
+    function startSlide(i){
     
-    for(i = 0; i < foldDownArr.length; i++){
-        divs +=`
-            <div class="foldDownDiv fadeOut">${foldDownArr[i]}</div>
-        `;   
-    }
-    
-    displayFoldDown.innerHTML=divs 
-    
-    const foldDownDiv = document.getElementsByClassName('foldDownDiv');
-    
+        if (i <= bannerImages.length-1){
+             addSlide = `
+                <div class="slideWrapper fadeSlide">
+                    <img src="images/${bannerImages[i]}">
+                </div>
+            `;
 
-    function runfoldDown(){
-        
-        setTimeout(function(){
-            
-            displayFoldDown.children[x].
-            classList.remove('fadeOut')
-            x++
-        
-            if(x < foldDownArr.length){
-                runfoldDown();
+            slideShowBannerDiv.innerHTML=addSlide
+            setTimeout(function(){
+                slideShowBannerDiv.firstElementChild.
+                classList.remove('fadeSlide');    
+            })
+    
+            if(i === bannerImages.length-1){ 
+                i = 0;
+            } else {
+                i++
             }
-        },150)
+
+            setTimeout(function(){
+                startSlide(i) 
+            }, 2500)
+        }
+
     }
-    x = 0;
-    runfoldDown();
+    i = 0;
+    startSlide(i)
 }
+slideShowBanner()
 
-const startFoldDownAnimation = document.getElementById('startFoldDown');
+//FOLD DOWN ANIMATION
+function foldDownAnimtion(){
+    
+    const startFoldDownAnimation = document.getElementById('startFoldDown');
+    startFoldDownAnimation.
+    addEventListener('click', startFoldDown);
+    
+    function startFoldDown(){
+    
+        const displayFoldDown = document.
+        getElementById('displayFoldDown');
 
-startFoldDownAnimation.addEventListener('click', viewFoldDown)
+        const foldDownArr = ["firstly", "secondly", "thirdly", "lastly", "et cetera"];
+
+        let divs = ""
+
+        for(i = 0; i < foldDownArr.length; i++){
+            divs +=`
+                <div class="foldDownDiv fadeOut">${foldDownArr[i]}</div>
+            `;   
+        }
+
+        displayFoldDown.innerHTML=divs 
+
+        const foldDownDiv = document.getElementsByClassName('foldDownDiv');
+
+
+        function runfoldDown(){
+
+            setTimeout(function(){
+
+                displayFoldDown.children[x].
+                classList.remove('fadeOut')
+                x++
+
+                if(x < foldDownArr.length){
+                    runfoldDown();
+                }
+            },150)
+        }
+        x = 0;
+        runfoldDown();
+    }
+
+}
+foldDownAnimtion();

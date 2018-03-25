@@ -1,3 +1,8 @@
+.navWrapper{
+    background: #cccccc;
+    color: white;
+}
+
 nav{
     height: 100px;
     display: flex;
@@ -60,7 +65,7 @@ nav{
 
 .navLinksFade{
     opacity: 0;
-    transition: 1000ms;
+    transition: 500ms;
 }
 
 .navLinks{
@@ -70,7 +75,7 @@ nav{
     background: rgba(0, 0, 0, .5);
     z-index: 1;
     position: absolute;
-    transition: 1000ms;
+    transition: 500ms;
 }
 
 

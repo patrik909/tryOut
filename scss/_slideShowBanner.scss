@@ -1,0 +1,25 @@
+#slideShowBanner{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: black;
+    margin: auto;
+}
+
+#slideShowBanner img{
+    width: 100%;
+}
+
+.slideWrapper{
+    transition: 400ms;
+}
+
+.fadeSlide{
+    opacity: 0.4;
+}
+
+@media screen and (min-width: 750px){
+    #slideShowBanner{
+        height: 450px;
+    }
+}
