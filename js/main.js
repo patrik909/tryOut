@@ -130,7 +130,7 @@ printCurrentTime();
 function slideShowBanner(i){
     
     const slideShowBannerDiv = document.
-    getElementById('slideShowBanner');
+    getElementById('slideShow');
     
     const bannerImages = [
         "cafeInterior.jpg", 
@@ -138,33 +138,55 @@ function slideShowBanner(i){
         "masseHall.jpg"
     ];
     
+    const dotWrapper = document.
+    getElementById('slideDotsWrapper')
+        
+    let dots = "";
+    for(i = 0; i < bannerImages.length; i++){
+        dots +=`<div class="slideDot"></div>`;
+    }
+        
+    dotWrapper.innerHTML=dots;
+
     function startSlide(i){
-    
-        if (i <= bannerImages.length-1){
+        if(i <= bannerImages.length-1){
              addSlide = `
                 <div class="slideWrapper fadeSlide">
                     <img src="images/${bannerImages[i]}">
                 </div>
             `;
+            const dot = `<div id="slideDotsWrapper"></div>`
 
-            slideShowBannerDiv.innerHTML=addSlide
+            slideShowBannerDiv.innerHTML=addSlide+dot
+
+            slideShowBannerDiv.
+            nextElementSibling.children[i].
+            classList.add('activeDot');
+            
+            setTimeout(function(){
+            slideShowBannerDiv.
+            nextElementSibling.children[i].
+            classList.remove('activeDot'); 
+            }, 2500)
+            
             setTimeout(function(){
                 slideShowBannerDiv.firstElementChild.
-                classList.remove('fadeSlide');    
+                classList.remove('fadeSlide');
             })
-    
-            if(i === bannerImages.length-1){ 
-                i = 0;
-            } else {
-                i++
-            }
-
+            
             setTimeout(function(){
+                
+                if(i === bannerImages.length-1){ 
+                    i = 0;
+                } else {
+                    i++
+                }
+                
                 startSlide(i) 
             }, 2500)
         }
-
     }
+    
     i = 0;
     startSlide(i)
 }
