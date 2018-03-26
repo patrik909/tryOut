@@ -3,11 +3,15 @@
     height: 300px;
     overflow: hidden;
     background: black;
+    position: relative;
     margin: auto;
 }
 
 #slideShowBanner img{
+    position: absolute;
     width: 100%;
+    bottom: 0;
+    left: 0;
 }
 
 .slideWrapper{
@@ -47,8 +51,13 @@
         height: 450px;
     }
     
+    /*#slideShowBanner img{
+        margin-top: -25%;
+    }*/
+    
     .slideDot{
         width: 15px;
         height: 15px;
     }
+    
 }

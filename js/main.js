@@ -127,7 +127,7 @@ function printCurrentTime(){
 printCurrentTime();
 
 //SLIDE SHOW ANIMATION
-function slideShowBanner(i){
+function slideShowBanner(){
     
     const slideShowBannerDiv = document.
     getElementById('slideShow');
@@ -135,7 +135,8 @@ function slideShowBanner(i){
     const bannerImages = [
         "cafeInterior.jpg", 
         "perestrianStreet.jpg",
-        "masseHall.jpg"
+        "masseHall.jpg",
+        "bridge.jpg"
     ];
     
     const dotWrapper = document.
@@ -237,4 +238,17 @@ function foldDownAnimtion(){
     }
 
 }
-foldDownAnimtion();
+foldDownAnimtion(); 
+
+/* 
+
+//GÖR GALLERY
+
+// JavaScript
+window.sr = ScrollReveal();
+sr.reveal('.footer');
+sr.reveal('.bar');
+
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
+*/
