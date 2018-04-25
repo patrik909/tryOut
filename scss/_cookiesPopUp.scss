@@ -1,0 +1,108 @@
+
+#cookiesWrapper{
+    display: flex;
+    align-items: flex-end;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+}
+
+#popUp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    height: 190px;
+    width: 100%;
+    background: rgb(250, 0, 0);
+    color: white;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    transition: 200ms;
+}
+
+#popUp p{
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+#popUp a{
+    color: yellow;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 700;
+    transition: 200ms;
+}
+
+#popUp a:hover{
+    text-decoration: underline;
+}
+
+#link{
+    display: flex;
+    flex-direction: row;
+}
+
+#popUp button{
+    font-weight: 900;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin-left: 25px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+#popUp button:hover{
+    background: lightgrey;    
+}
+
+.hideCookiesPopup{
+    animation-name: hideCookiesPopUp;
+    animation-duration: 1s;
+}
+
+.hideCookiesPopUpWrapper{
+    animation-name: hideCookiesPopUpWrapper;
+    animation-duration: 1s;
+}
+
+@keyframes hideCookiesPopUpWrapper{
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes hideCookiesPopUp {
+    0% {padding-bottom: 0;}
+    40% {padding-bottom: 20px;}
+    50% {margin-bottom: 0px;}
+    100% {margin-bottom: -200px;}
+}
+
+@media screen and (min-width: 740px) {
+    
+    #popUp{
+        padding: 0;    
+    }
+    
+}
+
+@media screen and (min-width: 1000px) {
+
+    #popUp{
+        flex-direction: row;
+        height: 150px;
+        
+    }
+    
+    #popUp button{
+        margin-top: 0;
+    }
+    
+}

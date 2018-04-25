@@ -80,7 +80,7 @@ function responsiveNavBar(){
     }
     
 }
-responsiveNavBar()
+responsiveNavBar();
 
 //DATE
 function printCurrentDate(){
@@ -191,7 +191,7 @@ function slideShowBanner(){
     i = 0;
     startSlide(i)
 }
-slideShowBanner()
+slideShowBanner();
 
 //FOLD DOWN ANIMATION
 function foldDownAnimtion(){
@@ -231,6 +231,7 @@ function foldDownAnimtion(){
                 if(x < foldDownArr.length){
                     runfoldDown();
                 }
+                
             },150)
         }
         x = 0;
@@ -240,10 +241,29 @@ function foldDownAnimtion(){
 }
 foldDownAnimtion(); 
 
-/* 
+//COOKIES POPUP
+function cookiesPopUp(){
+    
+    const cookiesWrapperDiv = document.getElementById('cookiesWrapper');
+    const popUpDiv = document.getElementById('popUp');
+    const closePopUpButton = document.getElementById('acceptCookies');
+    
+    closePopUpButton.addEventListener('click', () => {
+    
+        popUpDiv.classList.add('hideCookiesPopup');
+        cookiesWrapperDiv.classList.add('hideCookiesPopUpWrapper');
+        setTimeout( () => {
+            cookiesWrapperDiv.style.display="none";
+        }, 900)
+        
+    });
+    
+}
+cookiesPopUp();
+
 
 //GÖR GALLERY
-
+/*
 // JavaScript
 window.sr = ScrollReveal();
 sr.reveal('.footer');
@@ -252,3 +272,6 @@ sr.reveal('.bar');
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 
 */
+
+//requestAnimationFrame
+//recursion
