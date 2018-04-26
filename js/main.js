@@ -246,22 +246,30 @@ function cookiesPopUp(){
     
     const cookiesWrapperDiv = document.getElementById('cookiesWrapper');
     const popUpDiv = document.getElementById('popUp');
-    const closePopUpButton = document.getElementById('acceptCookies');
-    
-    closePopUpButton.addEventListener('click', () => {
-    
-        popUpDiv.classList.add('hideCookiesPopup');
-        cookiesWrapperDiv.classList.add('hideCookiesPopUpWrapper');
-        setTimeout( () => {
-            cookiesWrapperDiv.style.display="none";
-        }, 900)
+    const closePopUpButton = document.getElementById('acceptCookies');            
+    let popUpIsShown = localStorage.getItem("popUpShown");
         
-    });
+        if (popUpIsShown) {
+            cookiesWrapperDiv.style.display="none";
+        } else {
+            closePopUpButton.addEventListener('click', () => {
+                localStorage.setItem("popUpShown", 1);
+                console.log(localStorage.getItem("popUpShown"))
+                popUpDiv.classList.add('hideCookiesPopup');
+                cookiesWrapperDiv.classList.add('hideCookiesPopUpWrapper');
+                setTimeout( () => {
+                    cookiesWrapperDiv.style.display="none";
+                }, 900);
+            });
+        }
     
 }
 cookiesPopUp();
 
-
+//Cookie popup
+//Återanvändbar popup
+//REGULAR FETCH API
+//XML FETCH API
 //GÖR GALLERY
 /*
 // JavaScript
